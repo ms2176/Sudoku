@@ -41,7 +41,3 @@ python sudokusolver.py
 - **Graphical Interface**: Provides a visual representation of the Sudoku grid.
 - **Interactive Solver**: Allows users to solve the Sudoku puzzle by inputting numbers.
 - **Auto-Solver**: Pressing `Space` solves the Sudoku puzzle automatically.
-
----
-
-You can add more details or sections as needed, such as acknowledgments, troubleshooting, or specific usage instructions. Modify it according to your project's specific details and structure.
