@@ -1,6 +1,6 @@
 import pygame
 import sys
-from sudoku_solver import solve_sudoku, is_safe, get_hint
+from sudoku_solver import solve_sudoku, is_safe, get_hint, generate_sudoku_grid
 
 class PygameInterface:
     def __init__(self, grid, size, difficulty):
@@ -45,10 +45,10 @@ class PygameInterface:
 
     def get_cell_from_pos(self, pos):
         x, y = pos
-        if x < self.size * 50 and y < self.size * 50:
-            return y // 50, x // 50
-        return None
-    
+        if x < 0 or x > self.size * 50 or y < 0 or y > self.size * 50:
+            return None
+        return y // 50, x // 50
+
     def run(self):
         running = True
         while running:
@@ -80,7 +80,7 @@ class PygameInterface:
                             else:
                                 self.status_message = "No solution exists for this puzzle."
                     elif event.key == pygame.K_r:
-                        self.grid = [[0]*self.size for _ in range(self.size)]
+                        self.grid = generate_sudoku_grid(self.size, self.difficulty)
                         self.history = []
                         self.status_message = "Grid reset"
                     elif event.key == pygame.K_SPACE:
